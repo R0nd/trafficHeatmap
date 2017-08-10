@@ -59,8 +59,6 @@ var points = latArray
 
 var requestSize = 25;
 
-console.log("[" + " ".repeat(points.length / requestSize - 2) + "]");
-
 var i = 0;
 var interval = setInterval(() => {
   var chunk = points.slice(i, i + requestSize);
@@ -91,7 +89,6 @@ var interval = setInterval(() => {
         ".json",
       JSON.stringify({ matrix: chunk, response: json })
     );
-    process.stdout.write("-");
   });
   i += requestSize;
   if (i >= points.length) clearInterval(interval);
